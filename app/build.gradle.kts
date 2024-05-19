@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -70,4 +71,22 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    val dagger_version = "2.51.1"
+    implementation("com.google.dagger:dagger-android:$dagger_version")
+    kapt("com.google.dagger:dagger-android-processor:$dagger_version")
+    kapt("com.google.dagger:dagger-compiler:$dagger_version")
+
+    val lifecycle_version = "2.8.0"
+    implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata:$lifecycle_version")
+
+    val retrofit_version = "2.11.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
+
+    val coroutines_version = "1.8.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
+
 }
