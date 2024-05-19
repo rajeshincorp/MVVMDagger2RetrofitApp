@@ -11,8 +11,7 @@ class ProductRepository @Inject constructor(private val fakeAPI: FakeAPI) {
 
     private var _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>>                    //exposed to outer world for access
-
-    get() = _products
+        get() = _products
 
     suspend fun getProducts() {
         val result = fakeAPI.getProducts()
